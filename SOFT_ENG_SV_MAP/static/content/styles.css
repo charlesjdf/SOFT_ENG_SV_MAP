@@ -88,9 +88,11 @@ aside {
 
 .circle-container {
     position: relative;
-    top: 0;
+    /*top: 0;*/
     width: 30%;
-    aspect-ratio: 1;
+    /*aspect-ratio: 1;*/
+    height: 0;
+    padding-top: 30%;
     border-radius: 50%;
     border: 5px solid #000000;
     overflow: hidden;
@@ -99,13 +101,22 @@ aside {
 
 /* FOR LOGO IMAGE */
 #circle_img {
-    font-size: 20px;
+    /*font-size: 20px;
     font-weight: bold;
     display: flex;
     position: absolute;
     top: 40%;
     left: 10%;
     color: #D9D9D9;
+    */
+
+    width: 100%; /* Ensure the image takes the full width of the container */
+    height: 100%; /* Ensure the image takes the full height of the container */
+    object-fit: cover; /* Maintain the aspect ratio and fill the circle without stretching */
+    position: absolute;
+    top: 0;
+    left: 0;
+
 }
 
 .search-bar {

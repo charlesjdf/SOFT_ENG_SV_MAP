@@ -81,6 +81,7 @@
     <Content Include="SOFT_ENG_SV_MAP\templates\index.html" />
     <Content Include="SOFT_ENG_SV_MAP\templates\index1.html" />
     <Content Include="SOFT_ENG_SV_MAP\templates\layout.html" />
+    <Content Include="SOFT_ENG_SV_MAP\templates\logoadumapnobg.png" />
   </ItemGroup>
   <ItemGroup>
     <Interpreter Include="env\">
