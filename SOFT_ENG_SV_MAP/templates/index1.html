@@ -155,6 +155,13 @@
 
 <script>
     $(document).ready(function () {
+        let currentFloor = "index2"; // default floor 
+
+        // Update current floor 
+        $("#floors").on("change", function () {
+            currentFloor = $(this).val();
+        });
+
         var modal = document.getElementById("myModal");
         var img_modal = document.getElementById("img_modal");
         var img_map = document.getElementById("img_map");
@@ -164,7 +171,7 @@
 
             if (modal != null) {
                 modal.style.display = "block";
-                img_modal.src = "{{url_for('static', filename='Images/sample.jpg')}}"
+                img_modal.src = "{{url_for('static', filename='Images/museum.jpg')}}"
             }
 
         });
@@ -180,22 +187,49 @@
         });
 
         $("#filter_classrooms").on("click", function () {
-            img_map.src = "{{url_for('static', filename='Images/rooms.png')}}";
+            // img_map.src = "{{url_for('static', filename='Images/rooms.png')}}";
+            let imgPath = "";
+            if (currentFloor === "index2") {
+                imgPath = "{{url_for('static', filename='Images/SV2ndFloorClassroom.png')}}";
+            } else if (currentFloor === "index3") {
+                imgPath = "{{url_for('static', filename='Images/SV3rdFloorClassroom.png')}}"; 
+            } else if (currentFloor === "index1") {
+                imgPath = "{{url_for('static', filename='Images/SV1stFloorClassroom.png')}}"; 
+            }
+            img_map.src = imgPath;
         });
 
         $("#filter_department").on("click", function () {
-            img_map.src = "{{url_for('static', filename='Images/departments.png')}}";
+            //img_map.src = "{{url_for('static', filename='Images/departments.png')}}";
+            let imgPath = "";
+            if (currentFloor === "index2") {
+                imgPath = "{{url_for('static', filename='Images/SV2ndFloorDept.png')}}";
+            } else if (currentFloor === "index3") {
+                imgPath = "{{url_for('static', filename='Images/SV3rdFloorDept.png')}}"; 
+            } else if (currentFloor === "index1") {
+                imgPath = "{{url_for('static', filename='Images/SV1stFloorDept')}}"; 
+            }
+            img_map.src = imgPath;
         });
 
         $("#filter_restrooms").on("click", function () {
-            img_map.src = "{{url_for('static', filename='Images/restrooms.png')}}";
+            //img_map.src = "{{url_for('static', filename='Images/restrooms.png')}}";
+            let imgPath = "";
+            if (currentFloor === "index2") {
+                imgPath = "{{url_for('static', filename='Images/SV2ndFloorCR.png')}}";
+            } else if (currentFloor === "index3") {
+                imgPath = "{{url_for('static', filename='Images/SV3rdFloorCR.png')}}"; 
+            } else if (currentFloor === "index1") {
+                imgPath = "{{url_for('static', filename='Images/SV1stFloorCR')}}"; 
+            }
+            img_map.src = imgPath;
         });
 
         $("#submit").on("click", function () {
             var searchVal = $("#search_bar").val();
 
             switch (searchVal.toLowerCase()) {
-                case "classroom":
+                case "sv clinic":
                     img_map.src = "{{url_for('static', filename='Images/demopin.png')}}";
                     break;
                 case "office":
